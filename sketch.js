@@ -3,6 +3,7 @@ let programState = 'menu';
 
 function preload() {
   myFont1 = loadFont('DemonWings-GOn4Z.ttf');
+  wings = loadImage('wings.png');
 }
 
 
@@ -34,6 +35,9 @@ function menuScreen() {
 //set up
 background(0);
   
+//wings
+image(wings,0,150,600);
+
 //title
 fill(128,0,6);
 textSize(100);
