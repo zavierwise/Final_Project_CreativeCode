@@ -23,23 +23,12 @@ function draw() {
 
 function menuScreen() {
 //set up
-  background(255);
+  background(220);
   
 //title
   text
 //start button
   
-//panning thing
-  fill(157, 252, 3);
-  noStroke();
-  rect(200,350,400,70)
-//gradient1
-  fill(149, 240, 2);
-  rect(x,350,40,70);
-  x=x+increment;
-  if (x >= width) {
-      x = -15;
-      }
 }
 
 
