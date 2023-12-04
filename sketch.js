@@ -1,10 +1,12 @@
 let programState = 'menu';
 let timer = 120;
-let soul;
 let wings;
 let myFont1;
 let soulImg;
-let lastChar;
+let columnImg;
+let score = 0;
+
+let x, y, r;
 
 
 
@@ -12,6 +14,7 @@ function preload() {
   myFont1 = loadFont('DemonWings-GOn4Z.ttf');
   wings = loadImage('wings.png');
   soulImg = loadImage('Mage.png');
+  columnImg = loadImage('column_sides.png');
 }
 
 
@@ -19,7 +22,10 @@ function setup() {
   createCanvas(600, 600);
   rectMode(CENTER);
   textAlign(CENTER);
-  //canvas.parent('sketch-holder');
+  d = 40;
+  r = d/2;
+  x = random(width);
+  y = random(height);
 }
 
 function draw() {
@@ -37,7 +43,16 @@ function draw() {
       scoreScreen();
       break;
   }
+  
+  if (frameCount % 60 == 0 && timer > 0) { 
+    timer --;
+  }
+  if (timer == 0) {
+    programState = 'score';
+  }
+  
 }
+
 
 function menuScreen() {
 //set up
@@ -83,30 +98,35 @@ if ((mouseX > width*0.44) && (mouseX < width*0.58) && (mouseY > height*0.78) && 
 
 
 function gameScreen() {
-//set up
-background(0);
-fill(255);
-textSize(20);
-textFont(myFont1);
-text(timer,width*0.5,height*0.1);
+  background(0);
+  textFont(myFont1);
+  textSize(20);
+  fill(255);
+  text('souls collected:   ' + score,100,30);
+  text(timer,470,30);
   
-  if (frameCount % 60 == 0 && timer > 0) { 
-    timer --;
-  }
-  if (timer == 0) {
-    programState = 'score';
-  }
+  image(columnImg,0,0);
   
+  image(soulImg,x, y, d);
+
+}
+
+function mouseClicked() {
+  if (dist(mouseX-30, mouseY-30, x, y) <= r) {
+  x = int(random(100,480));
+  y = int(random(100,500));
+  score += 1;
+  }
 }
 
 
 function infoScreen() {
-  
+  background(0);
 }
 
 
 function scoreScreen() {
-
+background(0);
 }
 
 
