@@ -1,4 +1,4 @@
-let programState = 'menu';
+let programState = 'info';
 let timer = 120;
 let wings;
 let myFont1;
@@ -124,6 +124,10 @@ function mouseClicked() {
 
 function infoScreen() {
   background(0);
+  textFont(myFont1);
+  textSize(30);
+  fill(255);
+  text('You  are  a  demon  from  the  seventh  layer  of  hell.  According  to  Lucifer,  if  you  can  collect  one  thousand  souls  you  can  return  to  the  overworld.  A  futile  task  but  nonetheless  you  shall  persist.  Click  on  the  souls  as  they  appear  to  add  to  your  collection.  You  have  60  seconds.  Happy  hunting.  Click  anywhere  to  return  to  the   menu  screen.',width*0.465,height*0.3,500);
 }
 
 
@@ -137,5 +141,9 @@ function mouseReleased() {
     programState = 'game';
   } else if ((programState = 'menu') && ((mouseX > width*0.44) && (mouseX < width*0.58) && (mouseY > height*0.78) && (mouseY < height*0.85))) {
     programState = 'info';
+  } else if ((programState = 'game') && (timer == 0)) {
+    programState = 'score';
+  } else if ((programState = 'info')) {
+    programState = 'menu';
   }
 }
