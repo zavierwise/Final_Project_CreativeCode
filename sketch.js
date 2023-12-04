@@ -1,4 +1,5 @@
 let programState = 'menu';
+let timer = 120;
 
 
 function preload() {
@@ -75,7 +76,25 @@ if ((mouseX > width*0.44) && (mouseX < width*0.58) && (mouseY > height*0.78) && 
 
 
 function gameScreen() {
+//set up
+background(0);
+fill(255);
+textSize(20);
+textFont(myFont1);
+text(timer,width*0.5,height*0.1);
+  
+  if (frameCount % 60 == 0 && timer > 0) { 
+    timer --;
+  }
+  if (timer == 0) {
+    programState = 'score';
+  }
+  
+}
 
+
+function infoScreen() {
+  
 }
 
 
