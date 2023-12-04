@@ -51,6 +51,8 @@ function menuScreen() {
 //set up
 background(0);
   
+image(columnImg,0,0);
+  
 //wings
 image(wings,0,150,600);
 
