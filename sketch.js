@@ -95,10 +95,10 @@ function gameScreen() {
   textFont(myFont1);
   textSize(20);
   fill(255);
-  text('souls collected:   ' + score,100,30);
-  text(timer,470,30);
-
-  if (frameCount % 60 == 0 && timer > 0) { 
+  text('souls collected:   ' + score,180,30);
+  text(timer,480,30);
+  
+    if (frameCount % 60 == 0 && timer > 0) { 
     timer --;
   }
   if (timer == 0) {
