@@ -1,10 +1,9 @@
 let programState = 'menu';
-let x = -15;
-var increment = 5;
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(800, 800);
   rectMode(CENTER);
+  canvas.parent('sketch-holder');
 }
 
 function draw() {
@@ -15,8 +14,8 @@ function draw() {
     case 'game':
       gameScreen();
       break;
-    case 'die':
-      dieScreen();
+    case 'score':
+      scoreScreen();
       break;
   }
 }
@@ -26,11 +25,23 @@ function menuScreen() {
   background(220);
   
 //title
-  text
+fill(128,0,6);
+textSize(20);
+
+
 //start button
   
 }
 
+
+function gameScreen() {
+
+}
+
+
+function scoreScreen() {
+
+}
 
 function mouseReleased() {
   if ((programState = 'menu') && ((mouseX > width*0.738) && (mouseX < width*0.899) && (mouseY > height*0.035) && (mouseY < height*0.09))) {

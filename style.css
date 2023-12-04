@@ -2,6 +2,17 @@ html, body {
   margin: 0;
   padding: 0;
 }
+
+.program {
+  display: grid;
+  justify-content: center;
+}
+
+#sketch-holder {
+  position: center;
+}
+
 canvas {
   display: block;
+  margin: auto;
 }
