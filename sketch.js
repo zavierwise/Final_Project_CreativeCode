@@ -22,7 +22,7 @@ function draw() {
 
 function menuScreen() {
 //set up
-  background(220);
+background(220);
   
 //title
 fill(128,0,6);
