@@ -1,10 +1,17 @@
 let programState = 'menu';
 let timer = 120;
+let soul;
+let wings;
+let myFont1;
+let soulImg;
+let lastChar;
+
 
 
 function preload() {
   myFont1 = loadFont('DemonWings-GOn4Z.ttf');
   wings = loadImage('wings.png');
+  soulImg = loadImage('Mage.png');
 }
 
 
