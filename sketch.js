@@ -44,13 +44,6 @@ function draw() {
       break;
   }
   
-  if (frameCount % 60 == 0 && timer > 0) { 
-    timer --;
-  }
-  if (timer == 0) {
-    programState = 'score';
-  }
-  
 }
 
 
@@ -104,6 +97,13 @@ function gameScreen() {
   fill(255);
   text('souls collected:   ' + score,100,30);
   text(timer,470,30);
+
+  if (frameCount % 60 == 0 && timer > 0) { 
+    timer --;
+  }
+  if (timer == 0) {
+    programState = 'score';
+  }
   
   image(columnImg,0,0);
   
