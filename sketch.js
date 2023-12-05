@@ -1,4 +1,4 @@
-let programState = 'score';
+let programState = 'menu';
 let timer = 60;
 let wings;
 let myFont1;
@@ -141,7 +141,7 @@ function scoreScreen() {
   fill(255,0,0);
   text( 'YOUR  SCORE',width*0.49,height*0.2);
   fill(255);
-  text('save',width*0.49,height*0.8);
+  text('save',width*0.495,height*0.8);
   fill(255,0,0);
   textSize(70);
   text(score,width*0.5,height*0.45);
@@ -162,3 +162,4 @@ function mouseReleased() {
     programState = 'menu';
   } 
 }
+
