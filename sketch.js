@@ -1,4 +1,4 @@
-let programState = 'score';
+let programState = 'menu';
 let timer = 60;
 let wings;
 let myFont1;
@@ -156,6 +156,18 @@ function scoreScreen() {
   text('save', width*0.495,height*0.8);
 }
   
+  if ((mouseX > width*0.46) && (mouseX < width*0.54) && (mouseY > height*0.87) && (mouseY < height*0.9)) {
+  fill(255,0,0);
+  textSize(20);
+  textFont(myFont1);
+  text('menu', width*0.495,height*0.9);
+} else {
+  fill(255);
+  textSize(20);
+  textFont(myFont1);
+  text('menu', width*0.495,height*0.9);
+}
+  
   image(columnImg,0,0);
   
 }
@@ -170,7 +182,11 @@ function mouseReleased() {
     programState = 'score';
   } else if ((programState == 'info')) {
     programState = 'menu';
-  } else ((programState == 'score') && ((mouseX > width*0.41) && (mouseX < width*0.58) && (mouseY > height*0.73) && (mouseY < height*0.8))); {
+  } else if ((programState == 'score') && ((mouseX > width*0.41) && (mouseX < width*0.58) && (mouseY > height*0.73) && (mouseY < height*0.8))) {
     saveCanvas();
+  } else if ((programState == 'score') && ((mouseX > width*0.46) && (mouseX < width*0.54) && (mouseY > height*0.87) && (mouseY < height*0.9))) {
+    programState = 'menu';
+    score = 0;
+    timer = 60;
   }
 }
