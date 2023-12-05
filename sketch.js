@@ -1,5 +1,5 @@
-let programState = 'info';
-let timer = 120;
+let programState = 'score';
+let timer = 60;
 let wings;
 let myFont1;
 let soulImg;
@@ -132,18 +132,33 @@ function infoScreen() {
 
 
 function scoreScreen() {
-background(0);
+  background(0);
+  
+  image(wings,0,150,600);
+  
+  textFont(myFont1);
+  textSize(50);
+  fill(255,0,0);
+  text( 'YOUR  SCORE',width*0.49,height*0.2);
+  fill(255);
+  text('save',width*0.49,height*0.8);
+  fill(255,0,0);
+  textSize(70);
+  text(score,width*0.5,height*0.45);
+  
+  image(columnImg,0,0);
+  
 }
 
 
 function mouseReleased() {
-  if ((programState = 'menu') && ((mouseX > width*0.4) && (mouseX < width*0.62) && (mouseY > height*0.625) && (mouseY < height*0.71))) {
+  if ((programState == 'menu') && ((mouseX > width*0.4) && (mouseX < width*0.62) && (mouseY > height*0.625) && (mouseY < height*0.71))) {
     programState = 'game';
-  } else if ((programState = 'menu') && ((mouseX > width*0.44) && (mouseX < width*0.58) && (mouseY > height*0.78) && (mouseY < height*0.85))) {
+  } else if ((programState == 'menu') && ((mouseX > width*0.44) && (mouseX < width*0.58) && (mouseY > height*0.78) && (mouseY < height*0.85))) {
     programState = 'info';
-  } else if ((programState = 'game') && (timer == 0)) {
+  } else if ((programState == 'game') && (timer <= 0)) {
     programState = 'score';
-  } else if ((programState = 'info')) {
+  } else if ((programState == 'info')) {
     programState = 'menu';
-  }
+  } 
 }
