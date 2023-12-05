@@ -1,4 +1,4 @@
-let programState = 'menu';
+let programState = 'score';
 let timer = 60;
 let wings;
 let myFont1;
@@ -114,7 +114,7 @@ function gameScreen() {
 }
 
 function mouseClicked() {
-  if (dist(mouseX-30, mouseY-30, x, y) <= r) {
+  if ((programState == 'game') && (dist(mouseX-30, mouseY-30, x, y) <= r)) {
   x = int(random(100,480));
   y = int(random(100,500));
   score += 1;
@@ -138,13 +138,23 @@ function scoreScreen() {
   
   textFont(myFont1);
   textSize(50);
-  fill(255,0,0);
+  fill(128,0,6);
   text( 'YOUR  SCORE',width*0.49,height*0.2);
-  fill(255);
-  text('save',width*0.495,height*0.8);
   fill(255,0,0);
   textSize(70);
   text(score,width*0.5,height*0.45);
+  
+  if ((mouseX > width*0.41) && (mouseX < width*0.58) && (mouseY > height*0.73) && (mouseY < height*0.8)) {
+  fill(255,0,0);
+  textSize(50);
+  textFont(myFont1);
+  text('save', width*0.495,height*0.8);
+} else {
+  fill(255);
+  textSize(50);
+  textFont(myFont1);
+  text('save', width*0.495,height*0.8);
+}
   
   image(columnImg,0,0);
   
@@ -160,6 +170,7 @@ function mouseReleased() {
     programState = 'score';
   } else if ((programState == 'info')) {
     programState = 'menu';
-  } 
+  } else ((programState == 'score') && ((mouseX > width*0.41) && (mouseX < width*0.58) && (mouseY > height*0.73) && (mouseY < height*0.8))); {
+    saveCanvas();
+  }
 }
-
