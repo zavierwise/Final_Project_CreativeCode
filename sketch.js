@@ -51,7 +51,9 @@ function menuScreen() {
 //set up
 background(0);
   
-image(columnImg,0,0);
+//columns
+  myColumn = new column();
+  myColumn.display();
   
 //wings
 image(wings,0,150,600);
@@ -107,7 +109,8 @@ function gameScreen() {
     programState = 'score';
   }
   
-  image(columnImg,0,0);
+  myColumn = new column();
+  myColumn.display();
   
   image(soulImg,x, y, d);
 
@@ -133,6 +136,9 @@ function infoScreen() {
 
 function scoreScreen() {
   background(0);
+  
+  myColumn = new column();
+  myColumn.display();
   
   image(wings,0,150,600);
   
@@ -168,8 +174,17 @@ function scoreScreen() {
   text('menu', width*0.495,height*0.9);
 }
   
+}
+
+
+//class declaration for columns
+class column {
+  constructor() {
+  }
+
+display() {
   image(columnImg,0,0);
-  
+}
 }
 
 
